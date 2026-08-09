@@ -1,0 +1,35 @@
+---
+description: Voice, tone, and banned-phrase rules for any copy or documentation written in this project. Based on Lee Robinson's writing-rules pattern.
+globs: ["**/*.md", "**/*.html"]
+alwaysApply: false
+---
+
+# Writing Rules (voice & tone)
+
+Use these when writing page copy, README, or docs in this repo. Goal: clear, human, specific — not marketing-robot.
+
+## Banned words / phrases (delete on sight)
+- "mission-critical"
+- "seamless"
+- "performant" (prefer "fast" / "efficient")
+- "robust" (prefer a concrete description of what it does)
+- "cutting-edge"
+- "leverage" (as a verb for "use")
+- "utilize" (prefer "use")
+- "game-changing" / "revolutionary"
+- "effortless"
+- "best-in-class"
+
+## Banned LLM writing patterns
+- "It's not just X, it's Y" constructions
+- Opening with "In today's fast-paced world…"
+- "Whether you're a beginner or an expert…"
+- Stacking three emoji or more in a row
+- Closing every paragraph with a rhetorical question
+- "Unleash the power of…"
+
+## Preferred style
+- Lead with the specific claim, then the supporting detail.
+- Use the second person ("you") when addressing the reader.
+- One idea per sentence. Short sentences read better on a portfolio.
+- Show, don't tell: name the actual tech (local-first, model-routing) instead of vague adjectives.

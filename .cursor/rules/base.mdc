@@ -1,0 +1,32 @@
+---
+description: General engineering standards for the Thabang portfolio site (vanilla HTML/CSS/JS). Apply to all changes.
+globs: ["**/*.{html,js,css}"]
+alwaysApply: true
+---
+
+# Portfolio Site — Engineering Standards
+
+This is a **static, dependency-free** site: `index.html` + `script.js` + `styles.css`. No build step, no framework. Keep it that way unless explicitly asked to add a toolchain.
+
+## Core principles
+- **No external JS dependencies.** Everything ships as plain `<script>` + native browser APIs. Do not introduce React, Tailwind, bundlers, or npm packages unless the user asks.
+- **Self-contained & portable.** The site must open by double-clicking `index.html` (file://) or via any static server. No backend, no env vars required.
+- **Accessibility first.** Use semantic HTML (`<nav>`, `<main>`, `<section>`, `<button>`). Every interactive control gets an `aria-label`. Respect `prefers-reduced-motion`.
+- **Progressive enhancement.** JS enhances the page but the content must be readable with JS disabled.
+
+## Code style
+- HTML: lowercase tags/attrs, double quotes, 2-space indent, one element per line for clarity.
+- CSS: kebab-case properties, single class selectors over deep nesting, group related rules with comment banners. Prefer CSS custom properties (`--color-bg`) for theming (the site already supports light/dark via `data-theme` or a class).
+- JS: `const`/`let` over `var`, no `eval`, attach listeners with `addEventListener` (not inline `onclick`), wrap init in a DOMContentLoaded guard.
+- Keep functions small and single-purpose. No code longer than ~40 lines per function without reason.
+
+## Guardrails for the agent
+- After editing, **re-read the file** and confirm there are no syntax errors (unclosed tags, unbalanced braces/parens, missing semicolons in JS).
+- Do not leave dead code, commented-out blocks, or `console.log` debugging statements in committed output.
+- Preserve the existing theme system (CSS variables + `#theme-toggle`). Any new color must be a variable, not a hardcoded hex.
+- Keep bundle impact tiny — this is a personal site, not an app.
+
+## Anti-patterns to avoid
+- Don't add a framework or build tool because it's "modern."
+- Don't inline large scripts in HTML — keep logic in `script.js`.
+- Don't break the light/dark toggle when adding UI.
